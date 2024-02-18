@@ -3,6 +3,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:paytm_clone/utils/imageconstants.dart';
 import 'package:paytm_clone/view/homescreen/homescreen.dart';
 
 class Splashscreen extends StatefulWidget {
@@ -28,14 +29,36 @@ class _SplashscreenState extends State<Splashscreen> {
 
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.cyan,
+      backgroundColor: Colors.white,
       body: Center(
-        child: Text(
-          "Paytm",
-          style: TextStyle(
-              fontSize: 50,
-              fontWeight: FontWeight.bold,
-              color: Color.fromARGB(250, 11, 2, 59)),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Container(
+              height: 10,
+              width: 10,
+              color: Colors.transparent,
+            ),
+            Container(
+              height: 150,
+              width: 300,
+              decoration: BoxDecoration(
+                color: Colors.transparent,
+                image: DecorationImage(
+                    image: AssetImage(Imageconstants.paytmlogo),
+                    fit: BoxFit.cover),
+              ),
+            ),
+            Container(
+              height: 117,
+              width: 84,
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                  image: AssetImage("assets/Group 1.png"),
+                ),
+              ),
+            )
+          ],
         ),
       ),
     );

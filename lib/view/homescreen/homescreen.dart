@@ -2,202 +2,138 @@
 
 import 'package:flutter/material.dart';
 
+import 'package:paytm_clone/utils/imageconstants.dart';
+import 'package:paytm_clone/view/homescreen/containers/5th_container.dart';
+import 'package:paytm_clone/view/homescreen/containers/1st_container.dart';
+import 'package:paytm_clone/view/homescreen/containers/4th_container.dart';
+import 'package:paytm_clone/view/homescreen/containers/2nd_container.dart';
+import 'package:paytm_clone/view/homescreen/containers/6th_container.dart';
+import 'package:paytm_clone/view/homescreen/containers/3rd_container.dart';
+import 'package:paytm_clone/view/homescreen/containers/7th_container.dart';
+import 'package:paytm_clone/view/homescreen/containers/8th_container.dart';
+import 'package:paytm_clone/view/profile_scren/profile.dart';
+import 'package:paytm_clone/view/searchscreen/searchscreen.dart';
+
 class Homescreen extends StatelessWidget {
   const Homescreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(252, 121, 176, 236),
+      backgroundColor: Colors.white,
       appBar: AppBar(
-        backgroundColor: Color.fromARGB(252, 9, 1, 103),
+        flexibleSpace: Container(
+          decoration: const BoxDecoration(
+            gradient: LinearGradient(
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter,
+                colors: <Color>[
+                  Color.fromARGB(255, 130, 206, 244),
+                  Color.fromARGB(255, 4, 107, 192)
+                ]),
+          ),
+        ),
         leading: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: CircleAvatar(
-            radius: 3,
-            child: Text(
-              "FP",
-              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+          padding: const EdgeInsets.only(left: 5, bottom: 5),
+          child: InkWell(
+            onTap: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => Profilescreen(),
+                  ));
+            },
+            child: CircleAvatar(
+              radius: 5,
+              backgroundColor: const Color.fromARGB(255, 232, 112, 68),
+              child: Text(
+                "FP",
+                style: TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 25),
+              ),
             ),
+          ),
+        ),
+        title: Padding(
+          padding: const EdgeInsets.only(left: 85),
+          child: Image(
+            image: AssetImage(Imageconstants.paytmlogo),
           ),
         ),
         actions: [
           Padding(
             padding: const EdgeInsets.all(8.0),
-            child: Icon(
-              Icons.search,
-              color: Colors.white,
-              size: 30,
+            child: InkWell(
+              onTap: () {
+                Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => Searchscreen(),
+                    ));
+              },
+              child: Image(
+                image: AssetImage("assets/search.png"),
+                color: Colors.white,
+              ),
             ),
           ),
           Padding(
             padding: const EdgeInsets.all(8.0),
-            child: Icon(
-              Icons.messenger_outline,
+            child: Image(
+              image: AssetImage("assets/Vector (2).png"),
               color: Colors.white,
-              size: 30,
             ),
           ),
         ],
       ),
-      body: Padding(
-        padding: const EdgeInsets.only(left: 25, right: 25, top: 25),
-        child: Column(
-          children: [
-            Container(
-              height: 125,
-              width: 350,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(10),
-                border: Border.all(),
-                color: Colors.cyan,
-                image: DecorationImage(
-                    image: AssetImage("assets/IMG_20240203_223657.jpg"),
-                    fit: BoxFit.cover),
+      body: SingleChildScrollView(
+        child: Center(
+          child: Column(
+            children: [
+              SizedBox(
+                height: 7,
               ),
-            ),
-            SizedBox(
-              height: 10,
-            ),
-            Container(
-              height: 35,
-              width: 350,
-              color: Colors.transparent,
-              child: Text(
-                "BANKING \$ PAYMENTS",
-                style: TextStyle(fontWeight: FontWeight.bold),
+              //first container------------------------
+              Firstcontainer(),
+              SizedBox(
+                height: 10,
               ),
-            ),
-            Row(
-              children: [
-                SizedBox(
-                  width: 15,
-                ),
-                Column(
-                  children: [
-                    Container(
-                      child: Icon(
-                        Icons.qr_code_scanner_sharp,
-                        color: Colors.black,
-                        size: 40,
-                      ),
-                    ),
-                    Text("Scan&\nPay"),
-                  ],
-                ),
-                SizedBox(
-                  width: 25,
-                ),
-                Column(
-                  children: [
-                    Container(
-                      child: Icon(
-                        Icons.contact_page_outlined,
-                        size: 40,
-                        color: Colors.black,
-                      ),
-                    ),
-                    Text("To mobile\nor contact")
-                  ],
-                ),
-                SizedBox(
-                  width: 25,
-                ),
-                Column(
-                  children: [
-                    Container(
-                      child: Icon(
-                        Icons.credit_card,
-                        size: 40,
-                        color: Colors.black,
-                      ),
-                    ),
-                    Text("Link Rupay\ncard")
-                  ],
-                ),
-                SizedBox(
-                  width: 25,
-                ),
-                Column(
-                  children: [
-                    Container(
-                      child: Icon(
-                        Icons.home_work_outlined,
-                        size: 40,
-                        color: Colors.black,
-                      ),
-                    ),
-                    Text("to Bank\naccount")
-                  ],
-                )
-              ],
-            ),
-            SizedBox(height: 50),
-            Row(
-              children: [
-                SizedBox(
-                  width: 15,
-                ),
-                Column(
-                  children: [
-                    Container(
-                      child: Icon(
-                        Icons.list_alt_outlined,
-                        color: Colors.black,
-                        size: 40,
-                      ),
-                    ),
-                    Text("balance&\nhistory")
-                  ],
-                ),
-                SizedBox(
-                  width: 25,
-                ),
-                Column(
-                  children: [
-                    Container(
-                      child: Icon(
-                        Icons.home_outlined,
-                        size: 40,
-                        color: Colors.black,
-                      ),
-                    ),
-                    Text("   bank\naccount")
-                  ],
-                ),
-                SizedBox(
-                  width: 40,
-                ),
-                Column(
-                  children: [
-                    Container(
-                      child: Icon(
-                        Icons.wallet,
-                        size: 40,
-                        color: Colors.black,
-                      ),
-                    ),
-                    Text("Wallet")
-                  ],
-                ),
-                SizedBox(
-                  width: 35,
-                ),
-                Column(
-                  children: [
-                    Container(
-                      child: Icon(
-                        Icons.credit_card_sharp,
-                        size: 40,
-                        color: Colors.black,
-                      ),
-                    ),
-                    Text("FASTag")
-                  ],
-                )
-              ],
-            )
-          ],
+              // second container----------------
+              Secondcontainer(),
+              SizedBox(
+                height: 10,
+              ),
+              // third container--------------------------
+              Thirdcontainer(),
+              SizedBox(
+                height: 10,
+              ),
+              // fourth Container-----------------------
+              Fourthcontainer(),
+              SizedBox(
+                height: 10,
+              ),
+              // fifth container
+              Fifthcontainer(),
+              SizedBox(
+                height: 10,
+              ),
+              //sixth container----------------------
+              Sixthcontainer(),
+              SizedBox(
+                height: 10,
+              ),
+              // seventh container--------------------
+              Seventhcontainer(),
+              SizedBox(
+                height: 10,
+              ),
+              // eightth container--------------------
+              Eightcontainer(),
+            ],
+          ),
         ),
       ),
     );
