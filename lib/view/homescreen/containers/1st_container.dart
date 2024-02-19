@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:paytm_clone/view/toself_screen/toself_screen.dart';
 
 class Firstcontainer extends StatelessWidget {
   const Firstcontainer({super.key});
@@ -78,24 +79,28 @@ class Firstcontainer extends StatelessWidget {
                           ),
                         ),
                         Expanded(
-                          child: Column(
-                            children: [
-                              Container(
-                                height: 50,
-                                width: 50,
-                                decoration: BoxDecoration(
-                                  image: DecorationImage(
-                                    image: AssetImage("assets/image 10.png"),
+                          child: InkWell(onTap: () {
+                            Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => Toselfscreen(),));
+                          },
+                            child: Column(
+                              children: [
+                                Container(
+                                  height: 50,
+                                  width: 50,
+                                  decoration: BoxDecoration(
+                                    image: DecorationImage(
+                                      image: AssetImage("assets/image 10.png"),
+                                    ),
                                   ),
                                 ),
-                              ),
-                              Text(
-                                "To Self",
-                                style: TextStyle(
-                                  color: Colors.black,
-                                ),
-                              )
-                            ],
+                                Text(
+                                  "To Self",
+                                  style: TextStyle(
+                                    color: Colors.black,
+                                  ),
+                                )
+                              ],
+                            ),
                           ),
                         ),
                         Expanded(

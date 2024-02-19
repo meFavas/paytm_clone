@@ -24,10 +24,11 @@ class Profilescreen extends StatelessWidget {
                         builder: (context) => Homescreen(),
                       ));
                 },
-                child: Container(
-                  height: 50,
-                  child: Padding(
-                    padding: const EdgeInsets.only(right: 330),
+                child: Padding(
+                  padding: const EdgeInsets.only(right: 330),
+                  child: Container(
+                    height: 50,
+                    width: 50,
                     child: Icon(
                       Icons.arrow_back,
                       size: 35,
@@ -35,6 +36,7 @@ class Profilescreen extends StatelessWidget {
                   ),
                 ),
               ),
+
               Padding(
                 padding: const EdgeInsets.only(left: 7),
                 child: Container(
